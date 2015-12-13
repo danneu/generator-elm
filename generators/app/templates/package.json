@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "elm-make --yes src/Main.elm --output=./elm.js && cp index.template.html index.html",
+    "watch": "node watch.js",
+    "server": "python -m SimpleHTTPServer 5000"
+  },
+  "dependencies": {
+    "watch": "^0.16.0"
+  }
+}
