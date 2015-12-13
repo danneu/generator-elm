@@ -1,6 +1,6 @@
 {
   "name": "generator-elm",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Create the minimal, StartApp-ready Elm project boilerplate",
   "author": {
     "name": "Dan Neumann",
