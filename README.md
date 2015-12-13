@@ -3,8 +3,6 @@
 
 Create the minimal StartApp-ready Elm project boilerplate.
 
-## Usage
-
 ## Installation
 
 You must have [Node.js](https://nodejs.org) installed to use npm. 
