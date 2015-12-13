@@ -46,6 +46,12 @@ module.exports = yeoman.generators.Base.extend({
         name: 'rootComponentName',
         message: 'Name your root component (the one that will get imported into your Main.elm and used by StartApp):',
         default: 'RootComponent'
+      },
+      {
+        type: 'confirm',
+        name: 'bootstrap',
+        message: 'Want to use Twitter Bootstrap?',
+        default: false
       }
     ];
 
@@ -78,6 +84,14 @@ module.exports = yeoman.generators.Base.extend({
     this.copy('src/Main.elm', 'src/Main.elm');
     var rootComponentPath = 'src/' + this.props.rootComponentName + '.elm';
     this.copy('src/RootComponent.elm', rootComponentPath);
+
+    // public folder
+    this.copy('public/css/general.css', 'public/css/general.css');
+
+    // twitter bootstrap
+    if (this.props.bootstrap) {
+      this.directory('public/vendor/bootstrap-3.3.5', 'public/vendor/bootstrap-3.3.5');
+    }
   },
 
   ////////////////////////////////////////////////////////////
