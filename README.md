@@ -3,34 +3,42 @@
 
 Create the minimal Elm 0.17 + Webpack project boilerplate.
 
-## Usage
-
-    npm install -g yo generator-elm
-    yo elm <folder>
-
-You will be prompted for a few options and then the Elm project will
-be generated in the given folder.
-
-Once your project is generated:
-
-- **Development:** `npm start` and visit <http://localhost:8080>.
-- **Production:** `npm run build` to generate a `dist` folder ready to be
-  deployed.
-
-        .
-        └── dist
-            ├── index.html 
-            ├── 5df766af1ced8ff1fe0a.css
-            └── 5df766af1ced8ff1fe0a.js
-
 ## Features
 
-- Optional [Twitter Bootstrap v3.x](http://getbootstrap.com/) support if 
-  you opt-in during the generator prompt. 
-- Hot reloading: file changes are pushed to the browser without a refresh.
-- Supports [Sass](http://sass-lang.com/) in `.css` or `.scss` files.
-- Automatically adds browser vendor prefixes (like `-webkit-...`) to
-  your styles.
+- **Optional [Twitter Bootstrap (Sass) v3](http://getbootstrap.com/):**
+  You can opt-in during the generator prompt.
+- **Hot reloading:** File changes are pushed to the browser without a refresh.
+- **[Sass](http://sass-lang.com/) support:** Just write some `.scss` files.
+- **CSS vendor autoprefixing:** Automatically adds prefixes like `-webkit` to your styles when necessary.
+
+## Install
+
+    npm install -g yo generator-elm
+
+## Generate
+
+    yo elm <destinationFolder>
+
+## Run
+
+### Development
+
+Start the local hot-reloading development server and 
+visit <http://localhost:8080>.
+
+    npm start
+
+### Production
+
+Bundle the app into a `dist` folder ready to be deployed.
+
+    npm run build
+
+    .
+    └── dist
+        ├── index.html 
+        ├── 5df766af1ced8ff1fe0a.css
+        └── 5df766af1ced8ff1fe0a.js
 
 ## License
 
