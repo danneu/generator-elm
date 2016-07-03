@@ -3,14 +3,26 @@
 
 ## Development
 
-Start local server in root directory:
+Start the hot-reloading webpack dev server:
 
-    python -m SimpleHTTPServer 5000  (or `npm run server`)
+    npm start
 
-Build project:
+Navigate to <http://localhost:8080>.
 
-    npm run build  (or `npm run watch` for auto-rebuild on fs change)
+Any changes you make to your files (.elm, .js, .css, etc.) will trigger
+a hot reload.
 
-Navigate to <http://localhost:5000> (which loads your `index.html`).
+## Production
 
-**Note:** Make your edits to `index.template.html` and consider `index.html` an ephemeral file. This is because index.html gets overwritten easily. For example, `elm make` overwrites it by default.
+When you're ready to deploy:
+
+    npm run build
+
+This will create a `dist` folder:
+
+    .
+    ├── dist
+    │   ├── index.html 
+    │   ├── 5df766af1ced8ff1fe0a.css
+    │   └── 5df766af1ced8ff1fe0a.js
+

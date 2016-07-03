@@ -1,7 +1,7 @@
 {
   "name": "generator-elm",
   "version": "0.0.3",
-  "description": "Create the minimal, StartApp-ready Elm project boilerplate",
+  "description": "Create the minimal Elm + Webpack project boilerplate",
   "author": {
     "name": "Dan Neumann",
     "email": "danrodneu@gmail.com",
@@ -12,7 +12,8 @@
   ],
   "main": "generators/index.js",
   "keywords": [
-    "yeoman-generator", "elm-lang", "elm", "generator"
+    "yeoman-generator", "elm-lang", "elm", "generator",
+    "webpack", "boilerplate"
   ],
   "dependencies": {
     "yeoman-generator": "^0.21.1",
@@ -20,14 +21,6 @@
     "yosay": "^1.0.2"
   },
   "devDependencies": {
-    "yeoman-assert": "^2.0.0",
-    "gulp": "^3.6.0",
-    "gulp-eslint": "^1.0.0",
-    "gulp-exclude-gitignore": "^1.0.0",
-    "gulp-istanbul": "^0.9.0",
-    "gulp-mocha": "^2.0.0",
-    "gulp-plumber": "^1.0.0",
-    "gulp-nsp": "^2.1.0"
   },
   "repository": "danneu/generator-elm",
   "license": "MIT"

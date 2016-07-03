@@ -1,0 +1,12 @@
+
+/* Note: You can write Sass in this file. */
+
+<% if (bootstrap) { -%>
+body {
+  padding-top: 25px;
+  font-size: 16px;
+}
+<% } else { -%>
+body {
+}
+<% } -%>
