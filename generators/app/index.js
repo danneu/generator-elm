@@ -12,47 +12,41 @@ function copy (src, dest) {
   );
 }
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.Base.extend({
 
   ////////////////////////////////////////////////////////////
 
-  init: function () {
+  initializing: function () {
     this.copy = copy.bind(this);
   },
 
   ////////////////////////////////////////////////////////////
 
   prompting: function () {
-    var done = this.async();
-
-    // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the ' + chalk.red('generator-elm') + ' generator!'
     ));
-
-    var prompts = [
+    return this.prompt([
       {
         type: 'string',
         name: 'projectName',
         message: 'Project (and folder) name?',
-        default: this.destinationPath().split(path.sep).pop()
+        default: this.appname
       },
       {
         type: 'confirm',
         name: 'bootstrap',
-        message: 'Want to use Twitter Bootstrap?',
+        message: 'Want to use Twitter Bootstrap 3.x?',
         default: false
       }
-    ];
-
-    this.prompt(prompts, function (props) {
-      // Note: To access props later use this.props.{propKey}
+    ]).then(function (props) {
       this.props = props;
-      done();
     }.bind(this));
   },
 
   ////////////////////////////////////////////////////////////
+
+  configuring: function () {},
 
   writing: function () {
     // project root
@@ -80,24 +74,21 @@ module.exports = yeoman.generators.Base.extend({
   ////////////////////////////////////////////////////////////
 
   install: function () {
-    this.log(yosay(`Note: Webpack's dev dependencies take a while to install.`));
+    this.log(yosay('Note: Webpack\'s dev dependencies take a while to install.'));
     this.npmInstall();
-
-    this.spawnCommand('elm', [
-      'package', 'install', '--yes'
-    ]);
+    this.spawnCommand('elm', ['package', 'install', '--yes']);
   },
 
   ////////////////////////////////////////////////////////////
 
   end: function () {
-    this.log('================================================================================');
-    this.log(`  ${chalk.green('Project generated')}`);
+    this.log('===============================================================');
+    this.log('  ' + chalk.green('Project generated'));
     this.log();
-    this.log(`  Check out the generated README.md for usage information.`);
+    this.log('  Check out the generated README.md for usage information.');
     this.log();
-    this.log(`  Quick-start: ${chalk.cyan('npm start')} and visit <http://localhost:8080>.`);
-    this.log('================================================================================');
+    this.log('  Quick-start: ' + chalk.cyan('npm start') + ' and visit <http://localhost:8080>.');
+    this.log('===============================================================');
   }
 
   ////////////////////////////////////////////////////////////
