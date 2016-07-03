@@ -3,6 +3,14 @@
 
 Create the minimal Elm 0.17 + Webpack project boilerplate.
 
+## Usage
+
+    npm install -g yo generator-elm
+    yo elm <folder>
+
+You will be prompted for a few options and then the Elm project will
+be generated in the given folder.
+
 Once your project is generated:
 
 - **Development:** `npm start` and visit <http://localhost:8080>.
@@ -10,11 +18,10 @@ Once your project is generated:
   deployed.
 
         .
-        ├── dist
-        │   ├── index.html 
-        │   ├── 5df766af1ced8ff1fe0a.css
-        │   └── 5df766af1ced8ff1fe0a.js
-
+        └── dist
+            ├── index.html 
+            ├── 5df766af1ced8ff1fe0a.css
+            └── 5df766af1ced8ff1fe0a.js
 
 ## Features
 
@@ -23,27 +30,6 @@ Once your project is generated:
 - Supports [Sass](http://sass-lang.com/) in `.css` or `.scss` files.
 - Automatically adds browser vendor prefixes (like `-webkit-...`) to
   your styles.
-
-## Installation
-
-You must have [Node.js](https://nodejs.org) installed to use npm.
-
-These commands install [Yeoman](http://yeoman.io) and generator-elm globally:
-
-```bash
-npm install -g yo
-npm install -g generator-elm
-```
-
-Then generate your new project. 
-
-**Note:** At the moment, you must run `yo elm` from inside an existing folder.
-
-```bash
-mkdir my-elm-project
-cd my-elm-project
-yo elm
-```
 
 ## License
 

@@ -14,30 +14,40 @@ function copy (src, dest) {
 
 module.exports = yeoman.Base.extend({
 
+  constructor: function () {
+    yeoman.Base.apply(this, arguments);
+    this.argument('folderPath', {
+      type: String, 
+      required: true, 
+      desc: 'name of folder to create. can be a name, path, ".", etc.\n\t\t'
+    });
+  },
+
   ////////////////////////////////////////////////////////////
 
   initializing: function () {
+    this.log(yosay('Welcome to the ' + chalk.green('Elm') + ' generator!'));
     this.copy = copy.bind(this);
   },
 
   ////////////////////////////////////////////////////////////
 
   prompting: function () {
-    this.log(yosay('Welcome to the ' + chalk.green('Elm') + ' generator!'));
-    return this.prompt([
-      {
+    var newPath = this.destinationPath(this.folderPath)
+    this.destinationRoot(newPath);
+    this.log('Going to create project in folder:', chalk.cyan(this.destinationRoot()));
+    var prompts = [{
         type: 'string',
         name: 'projectName',
-        message: 'Project (and folder) name?',
-        default: this.appname
-      },
-      {
+        message: 'Project name?',
+        default: path.basename(this.destinationRoot())
+    }, {
         type: 'confirm',
         name: 'bootstrap',
         message: 'Want to use Twitter Bootstrap 3.x?',
         default: false
-      }
-    ]).then(function (props) {
+    }];
+    return this.prompt(prompts).then(function (props) {
       this.props = props;
     }.bind(this));
   },
