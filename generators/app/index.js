@@ -91,13 +91,12 @@ module.exports = yeoman.generators.Base.extend({
   ////////////////////////////////////////////////////////////
 
   end: function () {
-
     this.log('================================================================================');
-    this.log('  ' + chalk.green('Project generated'));
+    this.log(`  ${chalk.green('Project generated')}`);
     this.log();
-    this.log('  ' + 'Check out the generated README.md for usage information.');
+    this.log(`  Check out the generated README.md for usage information.`);
     this.log();
-    this.log('  ' + chalk.red('If install fails,') + ' then run `npm install && elm package install` manually.');
+    this.log(`  Quick-start: ${chalk.cyan('npm start')} and visit <http://localhost:8080>.`);
     this.log('================================================================================');
   }
 
