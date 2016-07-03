@@ -1,6 +1,6 @@
 {
   "name": "generator-elm",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Create the minimal Elm + Webpack project boilerplate",
   "repository": "danneu/generator-elm",
   "author": "Dan Neumann <danrodneu@gmail.com> (https://github.com/danneu)",
@@ -10,7 +10,7 @@
   "main": "generators/index.js",
   "keywords": [
     "yeoman-generator", "elm-lang", "elm", "generator",
-    "webpack", "boilerplate"
+    "webpack", "boilerplate", "bootstrap"
   ],
   "dependencies": {
     "yeoman-generator": "^0.23.4",
