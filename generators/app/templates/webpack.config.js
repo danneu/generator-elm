@@ -45,6 +45,7 @@ if (TARGET_ENV === 'development') {
   module.exports = merge(commonConfig, {
     entry: [
       'webpack-dev-server/client?http://localhost:8080',
+      'bootstrap-loader',
       path.join(__dirname, 'static/index.js')
     ],
     devServer: {
@@ -59,13 +60,8 @@ if (TARGET_ENV === 'development') {
           loader: 'elm-hot!elm-webpack?verbose=true&warn=true'
         },
         {
-          test: /\.(css|scss)$/,
-          loaders: [
-            'style-loader',
-            'css-loader',
-            'postcss-loader',
-            'sass-loader'
-          ]
+          test: /\.(css|scss)$/, 
+          loaders: ['style', 'css', 'postcss', 'sass']
         }
       ]
     }
@@ -76,7 +72,10 @@ if (TARGET_ENV === 'development') {
 if (TARGET_ENV === 'production') {
   console.log('Building for prod...');
   module.exports = merge( commonConfig, {
-    entry: path.join(__dirname, 'static/index.js'),
+    entry: [
+      'bootstrap-loader',
+      path.join(__dirname, 'static/index.js')
+    ],
     module: {
       loaders: [
         {
@@ -87,9 +86,7 @@ if (TARGET_ENV === 'production') {
         {
           test: /\.(css|scss)$/,
           loader: ExtractTextPlugin.extract('style-loader', [
-            'css-loader',
-            'postcss-loader',
-            'sass-loader'
+            'css', 'postcss', 'sass'
           ])
         }
       ]

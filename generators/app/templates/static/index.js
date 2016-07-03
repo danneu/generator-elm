@@ -1,9 +1,6 @@
 
 // pull in desired CSS/SASS files
-<% if (bootstrap) { -%>
-require('./vendor/bootstrap-sass-3.3.6/stylesheets/_bootstrap.scss');
-<% } -%>
-require('./main.scss');
+require('./css/main.scss');
 
 // inject bundled Elm app into div#main
 
