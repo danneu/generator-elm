@@ -58,17 +58,20 @@ module.exports = yeoman.Base.extend({
 
     // src folder
     this.copy('src/Main.elm', 'src/Main.elm');
-    this.copy('src/index.html', 'src/index.html');
-    this.copy('src/index.js', 'src/index.js');
-    this.copy('src/style.css', 'src/style.css');
 
-    // public folder
-    //this.copy('public/css/general.css', 'public/css/general.css');
+    // static folder
+    this.copy('static/index.html', 'static/index.html');
+    this.copy('static/index.js', 'static/index.js');
+    this.copy('static/main.scss', 'static/main.scss');
 
     // twitter bootstrap
-    //if (this.props.bootstrap) {
-      //this.directory('public/vendor/bootstrap-3.3.5', 'public/vendor/bootstrap-3.3.5');
-    //}
+    if (this.props.bootstrap) {
+      // Had to use bulkDirectory over directory since bulkDirectory
+      // does not try to parse ejs. The scss files have a bunch of random
+      // ejs tags in the comments that otherwise throw an error.
+      // TODO: Figure out a better solution than vendoring.
+      this.bulkDirectory('static/vendor/bootstrap-sass-3.3.6/assets', 'static/vendor/bootstrap-sass-3.3.6');
+    }
   },
 
   ////////////////////////////////////////////////////////////

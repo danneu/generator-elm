@@ -31,7 +31,7 @@ var commonConfig = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: 'static/index.html',
       inject: 'body',
       filename: 'index.html'
     })
@@ -45,7 +45,7 @@ if (TARGET_ENV === 'development') {
   module.exports = merge(commonConfig, {
     entry: [
       'webpack-dev-server/client?http://localhost:8080',
-      path.join(__dirname, 'src/index.js')
+      path.join(__dirname, 'static/index.js')
     ],
     devServer: {
       inline: true,
@@ -76,7 +76,7 @@ if (TARGET_ENV === 'development') {
 if (TARGET_ENV === 'production') {
   console.log('Building for prod...');
   module.exports = merge( commonConfig, {
-    entry: path.join(__dirname, 'src/index.js'),
+    entry: path.join(__dirname, 'static/index.js'),
     module: {
       loaders: [
         {
@@ -97,11 +97,11 @@ if (TARGET_ENV === 'production') {
     plugins: [
       new CopyWebpackPlugin([
         {
-          from: 'src/img/',
+          from: 'static/img/',
           to: 'img/'
         },
         {
-          from: 'src/favicon.ico'
+          from: 'static/favicon.ico'
         },
       ]),
       new webpack.optimize.OccurenceOrderPlugin(),
