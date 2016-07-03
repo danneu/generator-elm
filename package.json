@@ -1,6 +1,6 @@
 {
   "name": "generator-elm",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Create the minimal Elm + Webpack project boilerplate",
   "author": {
     "name": "Dan Neumann",
