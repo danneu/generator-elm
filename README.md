@@ -10,6 +10,10 @@ Create the minimal Elm 0.17 + Webpack project boilerplate.
 - **Hot reloading:** File changes are pushed to the browser without a refresh.
 - **[Sass](http://sass-lang.com/) support:** Just write some `.scss` files.
 - **CSS vendor autoprefixing:** Automatically adds prefixes like `-webkit` to your styles when necessary.
+- **Package quick-install:** The generator will prompt you for a 
+  space-delimited list of any extra packages you want to install at once.
+  You can also invoke the generator with flags of some popular Elm packages.
+  Ex: `yo elm my-app --http --websocket --svg`
 
 ## Install
 

@@ -12,6 +12,23 @@ function copy (src, dest) {
   );
 }
 
+var quickInstalls = {
+  html: 'elm-lang/html',
+  http: 'evancz/elm-http',
+  websocket: 'elm-lang/websocket',
+  svg: 'elm-lang/svg',
+  markdown: 'evancz/elm-markdown',
+  navigation: 'elm-lang/navigation',
+  geolocation: 'elm-lang/geolocation'
+};
+
+// get array of elm package names from user-input string,
+// delimited by spaces/commas.
+function extractPackages (str) {
+  if (!str) return [];
+  return str.split(/[\s,]+/g).filter(Boolean);
+}
+
 module.exports = yeoman.Base.extend({
 
   constructor: function () {
@@ -19,8 +36,14 @@ module.exports = yeoman.Base.extend({
     this.argument('folderPath', {
       type: String, 
       required: true, 
-      desc: 'name of folder to create. can be a name, path, ".", etc.\n\t\t'
+      desc: 'name of folder to create. can be a name, path, ".", etc.'
     });
+    for (var k in quickInstalls) {
+      this.option(k, {
+        type: Boolean,
+        desc: 'install the ' + quickInstalls[k] + ' package'
+      });
+    }
   },
 
   ////////////////////////////////////////////////////////////
@@ -36,17 +59,25 @@ module.exports = yeoman.Base.extend({
     var newPath = this.destinationPath(this.folderPath)
     this.destinationRoot(newPath);
     this.log('Going to create project in folder:', chalk.cyan(this.destinationRoot()));
-    var prompts = [{
+    var prompts = [
+      {
         type: 'string',
         name: 'projectName',
         message: 'Project name?',
         default: path.basename(this.destinationRoot())
-    }, {
+      },
+      {
         type: 'confirm',
         name: 'bootstrap',
         message: 'Want to use Twitter Bootstrap 3.x?',
         default: false
-    }];
+      },
+      {
+        type: 'string',
+        name: 'extras',
+        message: 'Want to install any additional packages? (space delimited)\n>'
+      }
+    ];
     return this.prompt(prompts).then(function (props) {
       this.props = props;
     }.bind(this));
@@ -82,9 +113,18 @@ module.exports = yeoman.Base.extend({
   ////////////////////////////////////////////////////////////
 
   install: function () {
-    this.log(yosay('Note: Webpack\'s dev dependencies take a while to install.'));
     this.npmInstall();
-    this.spawnCommand('elm', ['package', 'install', '--yes']);
+    this.spawnCommandSync('elm', ['package', 'install', '--yes']);
+    for (var k in quickInstalls) {
+      if (!this.options[k]) continue;
+      var pkg = quickInstalls[k];
+      this.log(chalk.green('Installing --' + k), pkg);
+      this.spawnCommandSync('elm', ['package', 'install', '--yes', pkg]);
+    }
+    for (var pkg of extractPackages(this.props.extras)) {
+      this.log(chalk.green('Installing'), pkg);
+      this.spawnCommandSync('elm', ['package', 'install', '--yes', pkg]);
+    }
   },
 
   ////////////////////////////////////////////////////////////
