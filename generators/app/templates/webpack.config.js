@@ -71,7 +71,7 @@ if (TARGET_ENV === 'development') {
 // additional webpack settings for prod env (when invoked via 'npm run build')
 if (TARGET_ENV === 'production') {
   console.log('Building for prod...');
-  module.exports = merge( commonConfig, {
+  module.exports = merge(commonConfig, {
     entry: [
       'bootstrap-loader',
       path.join(__dirname, 'static/index.js')
