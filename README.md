@@ -1,5 +1,5 @@
 
-# generator-elm
+# generator-elm [![NPM version](https://badge.fury.io/js/generator-elm.svg)](http://badge.fury.io/js/generator-elm) [![Dependency Status](https://david-dm.org/danneu/generator-elm.svg)](https://david-dm.org/danneu/generator-elm)
 
 Create the minimal Elm 0.17 + Webpack project boilerplate.
 
@@ -27,6 +27,7 @@ Once your project is generated:
 
 - Optional [Twitter Bootstrap v3.x](http://getbootstrap.com/) support if 
   you opt-in during the generator prompt. 
+- Hot reloading: file changes are pushed to the browser without a refresh.
 - Supports [Sass](http://sass-lang.com/) in `.css` or `.scss` files.
 - Automatically adds browser vendor prefixes (like `-webkit-...`) to
   your styles.

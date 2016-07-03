@@ -1,7 +1,7 @@
 {
   "name": "generator-elm",
   "version": "0.0.8",
-  "description": "Create the minimal Elm + Webpack project boilerplate",
+  "description": "Create the minimal Elm 0.17 + Webpack project boilerplate",
   "repository": "danneu/generator-elm",
   "author": "Dan Neumann <danrodneu@gmail.com> (https://github.com/danneu)",
   "files": [
