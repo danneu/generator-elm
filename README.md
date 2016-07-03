@@ -12,7 +12,7 @@ Create the minimal Elm 0.17 + Webpack project boilerplate.
 - **CSS vendor autoprefixing:** Automatically adds prefixes like `-webkit` to your styles when necessary.
 - **Package quick-install:** The generator will prompt you for a 
   space-delimited list of any extra packages you want to install at once.
-  You can also invoke the generator with flags of some popular Elm packages.
+  You can also invoke the generator with flags of some popular Elm packages.  
   Ex: `yo elm my-app --http --websocket --svg`
 
 ## Install
@@ -22,6 +22,18 @@ Create the minimal Elm 0.17 + Webpack project boilerplate.
 ## Generate
 
     yo elm <destinationFolder>
+
+    yo elm <destinationFolder> --http --websocket ...
+
+Available quick-install flags:
+
+- `--html`: elm-lang/html
+- `--http`: evancz/elm-http
+- `--websocket`: elm-lang/websocket
+- `--svg`: elm-lang/svg
+- `--markdown`: evancz/elm-markdown
+- `--navigation`: elm-lang/navigation
+- `--geolocation`: elm-lang/geolocation
 
 ## Run
 
