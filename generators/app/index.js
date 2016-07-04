@@ -34,8 +34,8 @@ module.exports = yeoman.Base.extend({
   constructor: function () {
     yeoman.Base.apply(this, arguments);
     this.argument('folderPath', {
-      type: String, 
-      required: true, 
+      type: String,
+      required: true,
       desc: 'name of folder to create. can be a name, path, ".", etc.'
     });
     for (var k in quickInstalls) {
@@ -102,11 +102,13 @@ module.exports = yeoman.Base.extend({
     this.copy('static/index.html', 'static/index.html');
     this.copy('static/index.js', 'static/index.js');
     this.copy('static/css/main.scss', 'static/css/main.scss');
+    this.bulkCopy('static/favicon.ico', 'static/favicon.ico');
+    this.bulkDirectory('static/img', 'static/img');
 
     // twitter bootstrap
     if (this.props.bootstrap) {
       this.copy('_bootstraprc', '.bootstraprc');
-      this.copy('static/css/bootstrap', 'static/css/bootstrap');
+      this.directory('static/css/bootstrap', 'static/css/bootstrap');
     }
   },
 

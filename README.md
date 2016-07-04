@@ -10,9 +10,9 @@ Create the minimal Elm 0.17 + Webpack project boilerplate.
 - **Hot reloading:** File changes are pushed to the browser without a refresh.
 - **[Sass](http://sass-lang.com/) support:** Just write some `.scss` files.
 - **CSS vendor autoprefixing:** Automatically adds prefixes like `-webkit` to your styles when necessary.
-- **Package quick-install:** The generator will prompt you for a 
+- **Package quick-install:** The generator will prompt you for a
   space-delimited list of any extra packages you want to install at once.
-  You can also invoke the generator with flags of some popular Elm packages.  
+  You can also invoke the generator with flags of some popular Elm packages.
   Ex: `yo elm my-app --http --websocket --svg`
 
 ## Install
@@ -22,6 +22,12 @@ Create the minimal Elm 0.17 + Webpack project boilerplate.
 ## Generate
 
     yo elm <destinationFolder>
+
+Generate in current folder: (good for regenerating files)
+
+    yo elm .
+
+Quick-install frequently-used packages:
 
     yo elm <destinationFolder> --http --websocket ...
 
@@ -39,7 +45,7 @@ Available quick-install flags:
 
 ### Development
 
-Start the local hot-reloading development server and 
+Start the local hot-reloading development server and
 visit <http://localhost:8080>.
 
     npm start
@@ -52,9 +58,16 @@ Bundle the app into a `dist` folder ready to be deployed.
 
     .
     └── dist
-        ├── index.html 
+        ├── index.html
         ├── 5df766af1ced8ff1fe0a.css
-        └── 5df766af1ced8ff1fe0a.js
+        ├── 5df766af1ced8ff1fe0a.js
+        └── ...
+
+To test the production build locally, spin up a static
+asset server to avoid broken links.
+
+    $ python -m SimpleHTTPServer 5000
+    server listening on http://localhost:5000
 
 ## Anatomy of the Scaffolding
 
@@ -68,10 +81,13 @@ Here's the generated project folder:
     │   └── Main.elm       # root elm component, begin hacking here
     ├── static             # holds static assets (html, css, js, img, ...)
     │   ├── css
-    │   │   ├── bootstrap  # if you opted into bootstrap, can customize it here
-    │   │   │   ├── pre-customizations.scss # tweak bootstrap $vars before it loads
-    │   │   │   └── customizations.scss     # override bootstrap after it loads
-    │   │   └── main.scss  # root css file that should @import other css files
+    │   │   ├── main.scss  # root css file that should @import other css files
+    │   │   └── bootstrap  # if you opted into bootstrap, can customize it here
+    │   │       ├── pre-customizations.scss # tweak bootstrap $vars before it loads
+    │   │       └── customizations.scss     # override bootstrap after it loads
+    │   ├── img
+    │   │   └── elm.png    # a dummy image
+    │   ├── favicon.ico    # a default favicon for you to replace
     │   ├── index.html     # root html file, Main.elm mounts to it
     │   └── index.js       # webpack entrypoint, shouldn't need to touch
     ├── webpack.config.js

@@ -48,12 +48,16 @@ view model =
   [ class "container" ]
   [ p
     []
-    [ text "Hello world" ]
+    [ img [ src "/img/elm.png" ] []
+    , text "Hello world"
+    ]
   ]
 <% } else { -%>
   div
   []
-  [ text "Hello world" ]
+  [ img [ src "/img/elm.png" ] []
+  , text "Hello world"
+  ]
 <% } -%>
 
 
