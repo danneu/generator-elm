@@ -17,21 +17,25 @@ Create the minimal Elm 0.17 + Webpack project boilerplate.
 
 ## Install
 
-    npm install -g yo generator-elm
+Install [Yeoman][yeoman] and this generator globally:
+
+    $ npm install -g yo generator-elm
+
+[yeoman]: http://yeoman.io/
 
 ## Generate
 
 Generate scaffolding in a target folder:
 
-    yo elm <destinationFolder>
+    $ yo elm <destinationFolder>
 
-Or generate in current folder:
+Or in the current folder:
 
-    yo elm .
+    $ yo elm .
 
 You can also supply quick-install flags for frequently-used packages:
 
-    yo elm <destinationFolder> --http --websocket ...
+    $ yo elm <destinationFolder> --http --websocket ...
 
 Available quick-install flags:
 
@@ -50,26 +54,27 @@ Available quick-install flags:
 Start the local hot-reloading development server and
 visit <http://localhost:8080>.
 
-    npm start
+    $ npm start
 
 ### Production
 
 Bundle the app into a `dist` folder ready to be deployed.
 
-    npm run build
+    $ npm run build
 
     .
     └── dist
         ├── index.html
         ├── 5df766af1ced8ff1fe0a.css
         ├── 5df766af1ced8ff1fe0a.js
-        └── ...
+        └── img
+            └── ...
 
 To test the production build locally, spin up a static
 asset server to avoid broken links.
 
-    $ python -m SimpleHTTPServer 5000
-    server listening on http://localhost:5000
+    $ npm run build && npm run serve
+    server listening on http://localhost:8080
 
 ## Anatomy of the Scaffolding
 
