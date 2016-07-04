@@ -21,13 +21,15 @@ Create the minimal Elm 0.17 + Webpack project boilerplate.
 
 ## Generate
 
+Generate scaffolding in a target folder:
+
     yo elm <destinationFolder>
 
 Or generate in current folder:
 
     yo elm .
 
-Or quick-install frequently-used packages:
+You can also supply quick-install flags for frequently-used packages:
 
     yo elm <destinationFolder> --http --websocket ...
 
@@ -99,40 +101,7 @@ Here's the generated project folder:
 
 ## Twitter Bootstrap (Sass) v3
 
-If you opt-in to Twitter Bootstrap integration, the generator just adds
-[bootstrap-loader](https://github.com/shakacode/bootstrap-loader) to your
-Webpack build. It's a Bootstrap-specific Webpack loader that injects the
-Sass version of Bootstrap's assets into your pipeline.
-
-In other words, it doesn't dump Bootstrap files into your project. Bootstrap
-will feel magically available when you boot up the dev server so you can
-get right to work.
-
-You use the `.bootstraprc` file in your project to configure bootstrap-loader.
-For more information about your options in this file, check out
-bootstrap-loader's docs: <https://github.com/shakacode/bootstrap-loader/blob/master/.bootstraprc-3-default>.
-
-By default, the generator turns off Bootstrap's Javascript and turns on
-all of Bootstraps styling which is something you can tweak at some point.
-
-The generator also generates two files that you can use to modify
-Bootstrap right before and after it builds itself.
-
-    ├── .bootstraprc
-    ├── static
-    │   ├── css
-    │   │   └── bootstrap
-    │   │       ├── pre-customizations.scss <------- 1.
-    │   │       └── customizations.scss     <------- 2.
-
-1. `pre-customizations.scss` lets you customize Bootstrap's variables
-   before Bootstrap runs and uses them to build itself.
-   For example, it's here you'd customize the
-   `$primary-color` of your website. (Here are the [default variables][vars]).
-2. `customizations.scss` is executed after Bootstrap is evaluated, so here
-   you can implement your Bootstrap-specific overrides.
-
-[vars]: https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss
+Wiki: [How to work with Twitter Bootstrap](https://github.com/danneu/generator-elm/wiki/How-to-work-with-Twitter-Bootstrap)
 
 ## License
 
