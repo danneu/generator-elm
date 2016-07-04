@@ -1,5 +1,5 @@
 
-# generator-elm [![NPM version](https://badge.fury.io/js/generator-elm.svg)](http://badge.fury.io/js/generator-elm) [![Dependency Status](https://david-dm.org/danneu/generator-elm.svg)](https://david-dm.org/danneu/generator-elm)
+# generator-elm [![Build Status](https://travis-ci.org/danneu/generator-elm.svg?branch=master)](https://travis-ci.org/danneu/generator-elm) [![NPM version](https://badge.fury.io/js/generator-elm.svg)](http://badge.fury.io/js/generator-elm) [![Dependency Status](https://david-dm.org/danneu/generator-elm.svg)](https://david-dm.org/danneu/generator-elm)
 
 Create the minimal Elm 0.17 + Webpack project boilerplate.
 
