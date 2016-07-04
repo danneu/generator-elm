@@ -115,18 +115,29 @@ module.exports = yeoman.Base.extend({
   ////////////////////////////////////////////////////////////
 
   install: function () {
+    var self = this;
     this.npmInstall();
-    this.spawnCommandSync('elm', ['package', 'install', '--yes']);
-    for (var k in quickInstalls) {
-      if (!this.options[k]) continue;
+    this.runInstall('elm-package', [], { yes: true });
+    Object.keys(quickInstalls).forEach(function (k) {
+      if (!self.options[k]) {
+        return;
+      }
       var pkg = quickInstalls[k];
-      this.log(chalk.green('Installing --' + k), pkg);
-      this.spawnCommandSync('elm', ['package', 'install', '--yes', pkg]);
-    }
-    for (var pkg of extractPackages(this.props.extras)) {
-      this.log(chalk.green('Installing'), pkg);
-      this.spawnCommandSync('elm', ['package', 'install', '--yes', pkg]);
-    }
+      self.runInstall('elm-package', [pkg], { yes: true }, function (err) {
+        if (err) {
+          return self.log(chalk.red('Error installing'), pkg);
+        }
+        self.log(chalk.green('Installed --' + k), pkg);
+      });
+    });
+    extractPackages(this.props.extras).forEach(function (pkg) {
+      self.runInstall('elm-package', [pkg], { yes: true }, function (err) {
+        if (err) {
+          return self.log(chalk.red('Error installing'), pkg);
+        }
+        self.log(chalk.green('Installed'), pkg);
+      });
+    });
   },
 
   ////////////////////////////////////////////////////////////
