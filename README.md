@@ -6,7 +6,9 @@ Create the minimal Elm 0.17 + Webpack project boilerplate.
 ## Features
 
 - **Optional [Twitter Bootstrap (Sass) v3](http://getbootstrap.com/):**
-  You can opt-in during the generator prompt.
+  You can opt-in during the generator prompt. 
+  Once you opt-in, you can immediately start using Bootstrap classes in
+  `Main.elm` and it'll just work.
 - **Hot reloading:** File changes are pushed to the browser without a refresh.
 - **[Sass](http://sass-lang.com/) support:** Just write some `.scss` files.
 - **CSS vendor autoprefixing:** Automatically adds prefixes like `-webkit` to your styles when necessary.
@@ -17,7 +19,7 @@ Create the minimal Elm 0.17 + Webpack project boilerplate.
 
 ## Install
 
-Install [Yeoman][yeoman] and this generator globally:
+Install [Yeoman][yeoman] (generator framework) and `generator-elm` globally:
 
     $ npm install -g yo generator-elm
 
