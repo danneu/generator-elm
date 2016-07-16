@@ -108,7 +108,7 @@ Here's the generated project folder:
     │   └── Main.elm       # root elm component, begin hacking here
     ├── static             # holds static assets (html, css, js, img, ...)
     │   ├── css
-    │   │   ├── main.scss  # root css file that should @import other css files
+    │   │   ├── index.scss # root css file that should @import other css files
     │   │   └── bootstrap  # if you opted into bootstrap, can customize it here
     │   │       ├── pre-customizations.scss # tweak bootstrap $vars before it loads
     │   │       └── customizations.scss     # override bootstrap after it loads

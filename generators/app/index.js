@@ -111,7 +111,7 @@ module.exports = yeoman.Base.extend({
     // static folder
     this.copy('static/index.html', 'static/index.html');
     this.copy('static/index.js', 'static/index.js');
-    this.copy('static/css/main.scss', 'static/css/main.scss');
+    this.copy('static/css/index.scss', 'static/css/index.scss');
     this.bulkCopy('static/favicon.ico', 'static/favicon.ico');
     this.bulkDirectory('static/img', 'static/img');
 

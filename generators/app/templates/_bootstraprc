@@ -11,5 +11,5 @@
   // Our Styles
   "preBootstrapCustomizations": "./static/css/bootstrap/pre-customizations.scss",
   "bootstrapCustomizations": "./static/css/bootstrap/customizations.scss",
-  "appStyles": "./static/css/main.scss"
+  "appStyles": "./static/css/index.scss"
 }
