@@ -57,6 +57,15 @@ Available quick-install flags:
 - `--markdown`: evancz/elm-markdown
 - `--navigation`: elm-lang/navigation
 - `--geolocation`: elm-lang/geolocation
+- `--html-extra`: elm-community/html-extra
+- `--basics-extra`: elm-community/basics-extra
+- `--json-extra`: elm-community/json-extra
+- `--list-extra`: elm-community/list-extra
+- `--array-extra`: elm-community/array-extra
+- `--dict-extra`: elm-community/dict-extra
+- `--maybe-extra`: elm-community/maybe-extra
+- `--random-extra`: elm-community/random-extra
+- `--result-extra`: elm-community/result-extra
 
 ## Run
 
