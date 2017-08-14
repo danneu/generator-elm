@@ -1,35 +1,40 @@
 {
   "scripts": {
-    "start": "webpack-dev-server --hot --inline --content-base static/",
-    "build": "rimraf dist && webpack",
-    "serve": "static dist",
-    "watch": "webpack --watch"
+    "build": "webpack -p",
+    "start": "webpack-dev-server --port 3000 --hot",
+    "deploy": "npm run build && gh-pages --dist dist"
+  },
+  "dependencies": {
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.4",
+    "elm-hot-loader": "^0.5.4",
+    "elm-webpack-loader": "^4.3.1",
+    "eslint": "^4.4.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
+    "prettier-webpack-plugin": "^0.2.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.4.1",
+    "webpack-build-notifier": "^0.1.16",
+    "webpack-dev-server": "^2.6.1",
+    "webpack-merge": "^4.1.0"
   },
   "devDependencies": {
-<% if (bootstrap) { -%>
-    "resolve-url-loader": "^1.4.4",
-    "bootstrap-loader": "^1.0.10",
-    "bootstrap-sass": "^3.3.6",
-<% } -%>
-    "autoprefixer": "^6.3.6",
-    "copy-webpack-plugin": "^3.0.1",
-    "css-loader": "^0.23.1",
-    "elm": "^0.17.0",
-    "elm-hot-loader": "^0.3.3",
-    "elm-webpack-loader": "^3.0.3",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.9.0",
-    "html-webpack-plugin": "^2.21.0",
-    "node-sass": "^3.8.0",
-    "node-static": "^0.7.7",
-    "postcss-loader": "^0.9.1",
-    "rimraf": "^2.5.2",
-    "sass-loader": "^3.2.1",
-    "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1",
-    "webpack-merge": "^0.14.0"
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
   },
   "private": true,
   "license": "UNLICENSED"

@@ -7,7 +7,7 @@ Start the hot-reloading webpack dev server:
 
     npm start
 
-Navigate to <http://localhost:8080>.
+Navigate to <http://localhost:3000>.
 
 Any changes you make to your files (.elm, .js, .css, etc.) will trigger
 a hot reload.
@@ -23,6 +23,6 @@ This will create a `dist` folder:
     .
     ├── dist
     │   ├── index.html 
-    │   ├── 5df766af1ced8ff1fe0a.css
-    │   └── 5df766af1ced8ff1fe0a.js
+    │   ├── app-5df766af1ced8ff1fe0a.css
+    │   └── app-5df766af1ced8ff1fe0a.js
 
