@@ -4,6 +4,14 @@
   "description": "Generate a minimal Elm + Webpack project",
   "repository": "danneu/generator-elm",
   "author": "Dan Neumann <danrodneu@gmail.com> (https://github.com/danneu)",
+  "scripts": {
+    "test": "node_modules/.bin/mocha",
+    "patch": "npm version patch && npm publish",
+    "minor": "npm version minor && npm publish",
+    "major": "npm version major && npm publish",
+    "postpublish": "git push origin master --follow-tags",
+    "deploy": "git pull --rebase origin master && git push origin master"
+  },
   "files": [
     "generators"
   ],
