@@ -110,7 +110,10 @@ if (TARGET_ENV === 'development') {
     devServer: {
       inline: true,
       historyApiFallback: true,
-      stats: { colors: true }
+      stats: {
+        colors: true,
+        children: false
+      }
     }
   })
 }
