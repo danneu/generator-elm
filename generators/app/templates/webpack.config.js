@@ -93,6 +93,7 @@ const common = {
 if (TARGET_ENV === 'development') {
   console.log('=== Building for development')
   module.exports = merge(common, {
+    devtool: 'cheap-module-eval-source-map',
     plugins: [
       // Hot Module Reload plugin recommends this in the js console
       new webpack.NamedModulesPlugin(),
