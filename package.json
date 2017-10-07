@@ -10,11 +10,11 @@
     "minor": "npm version minor && npm publish",
     "major": "npm version major && npm publish",
     "postpublish": "git push origin master --follow-tags",
-    "deploy": "git pull --rebase origin master && git push origin master"
+    "deploy": "git pull --rebase origin master && git push origin master",
+    "pretty-fix":
+      "./node_modules/.bin/prettier --write \"{generators,test}/**/*.js\""
   },
-  "files": [
-    "generators"
-  ],
+  "files": ["generators"],
   "main": "generators/index.js",
   "keywords": [
     "yeoman-generator",
@@ -26,11 +26,17 @@
   ],
   "dependencies": {
     "chalk": "^2.1.0",
-    "yeoman-generator": "^1.1.1"
+    "yeoman-generator": "^2.0.1"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "license": "MIT",
   "devDependencies": {
     "mocha": "^3.5.0",
+    "prettier": "^1.7.4",
     "yeoman-assert": "^3.0.0",
     "yeoman-test": "^1.7.0"
   }

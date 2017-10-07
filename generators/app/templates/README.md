@@ -22,7 +22,7 @@ This will create a `dist` folder:
 
     .
     ├── dist
-    │   ├── index.html 
+    │   ├── index.html
     │   ├── app-5df766af1ced8ff1fe0a.css
     │   └── app-5df766af1ced8ff1fe0a.js
 

@@ -4,7 +4,7 @@ const Generator = require('yeoman-generator')
 const chalk = require('chalk')
 
 module.exports = class extends Generator {
-  constructor (args, opts) {
+  constructor(args, opts) {
     super(args, opts)
 
     this.argument('projectName', { type: String, required: true })
@@ -20,18 +20,18 @@ module.exports = class extends Generator {
     this.destinationRoot(projectPath)
   }
 
-  prompting () {
+  prompting() {
     return this.prompt([
       {
         type: 'input',
         name: 'projectName',
         message: 'projectName',
-        default: this.options.projectName
-      }
+        default: this.options.projectName,
+      },
     ])
   }
 
-  writing () {
+  writing() {
     const copyTpl = (src, dest = src) => {
       this.fs.copyTpl(
         this.templatePath(src),
@@ -54,18 +54,15 @@ module.exports = class extends Generator {
     copyTpl('src/index.js')
     copyTpl('src/css/index.scss')
     // folder copy (note: can't use copyTpl on binary data)
-    this.fs.copy(
-      this.templatePath('src/img'),
-      this.destinationPath('src/img')
-    )
+    this.fs.copy(this.templatePath('src/img'), this.destinationPath('src/img'))
   }
 
-  install () {
+  install() {
     this.npmInstall()
     this.runInstall('elm-package', [], { yes: true })
   }
 
-  end () {
+  end() {
     this.log(`
     ${chalk.green('Project generated')}
 
