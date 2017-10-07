@@ -1,6 +1,6 @@
 {
   "name": "generator-elm",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Generate a minimal Elm + Webpack project",
   "repository": "danneu/generator-elm",
   "author": "Dan Neumann <danrodneu@gmail.com> (https://github.com/danneu)",
@@ -11,10 +11,11 @@
     "major": "npm version major && npm publish",
     "postpublish": "git push origin master --follow-tags",
     "deploy": "git pull --rebase origin master && git push origin master",
-    "pretty-fix":
-      "./node_modules/.bin/prettier --write \"{generators,test}/**/*.js\""
+    "pretty-fix": "./node_modules/.bin/prettier --write \"{generators,test}/**/*.js\""
   },
-  "files": ["generators"],
+  "files": [
+    "generators"
+  ],
   "main": "generators/index.js",
   "keywords": [
     "yeoman-generator",
