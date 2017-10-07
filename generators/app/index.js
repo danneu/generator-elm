@@ -44,7 +44,6 @@ module.exports = class extends Generator {
     copyTpl('elm-package.json')
     copyTpl('package.json')
     copyTpl('webpack.config.js')
-    copyTpl('postcss.config.js')
     // dotfiles
     copyTpl('_gitignore', '.gitignore')
     // src code

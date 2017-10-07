@@ -6,6 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const autoprefixer = require('autoprefixer')
 
 const TARGET_ENV =
   process.env.npm_lifecycle_event === 'build' ? 'production' : 'development'
@@ -26,7 +27,16 @@ const common = {
         test: /\.(css|scss)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader', 'postcss-loader'],
+          use: [
+            'css-loader',
+            'sass-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: [autoprefixer()],
+              },
+            },
+          ],
         }),
       },
       {
@@ -41,11 +51,6 @@ const common = {
           },
         },
       },
-      // {
-      //   test: /\.html$/,
-      //   exclude: /node_modules/,
-      //   loader: 'file-loader?name=[name].[ext]'
-      // },
       {
         test: /\.elm$/,
         exclude: [/elm-stuff/, /node_modules/],
