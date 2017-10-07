@@ -82,6 +82,9 @@ const common = {
         from: 'src/img',
         to: 'img',
       },
+      {
+        from: 'src/favicon.ico',
+      },
     ]),
   ],
 }
