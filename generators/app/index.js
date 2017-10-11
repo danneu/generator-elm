@@ -7,14 +7,19 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts)
 
-    this.argument('projectName', { type: String, required: true })
+    this.props = {}
 
+    // populates this.options.projectName
+    this.argument('projectName', { type: String, required: true })
+  }
+
+  initializing() {
     // absolute path to the project folder
     const projectPath = path.resolve(this.contextRoot, this.options.projectName)
     // just the folder name
     const projectName = path.basename(projectPath)
 
-    this.options = {
+    this.props = {
       projectPath,
       projectName,
     }
@@ -28,22 +33,22 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'projectName',
         message: 'projectName',
-        default: this.options.projectName,
+        default: this.props.projectName,
       },
-    ]).then(options => {
-      Object.assign(this.options, options)
+    ]).then(props => {
+      Object.assign(this.props, props)
     })
   }
 
   writing() {
     // copies text files, evaluating them as templates such that
-    // the generator options can be <%= interpolated %> during
+    // the generator props can be <%= interpolated %> during
     // the copy.
     const copyTpl = (src, dest = src) => {
       this.fs.copyTpl(
         this.templatePath(src),
         this.destinationPath(dest),
-        this.options
+        this.props
       )
     }
 
