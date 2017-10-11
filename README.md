@@ -36,6 +36,10 @@ Or in the current folder:
 
     $ yo elm .
 
+Skip the NPM + Elm installs after generation:
+
+    $ yo elm my-app --skip-install
+
 ## Run
 
 ### Development
