@@ -7,15 +7,19 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts)
 
+    // will be populated during prompt and passed to templates
     this.props = {}
 
-    // populates this.options.projectName
-    this.argument('projectName', { type: String, required: true })
+    this.argument('path', {
+      type: String,
+      required: true,
+      desc: 'Where to generate the project (folder name, ".", or path)',
+    })
   }
 
   initializing() {
     // absolute path to the project folder
-    const projectPath = path.resolve(this.contextRoot, this.options.projectName)
+    const projectPath = path.resolve(this.contextRoot, this.options.path)
     // just the folder name
     const projectName = path.basename(projectPath)
 
