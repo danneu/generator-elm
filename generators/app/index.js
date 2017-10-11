@@ -52,8 +52,12 @@ module.exports = class extends Generator {
     copyTpl('src/index.html')
     copyTpl('src/index.js')
     copyTpl('src/css/index.scss')
-    // folder copy (note: can't use copyTpl on binary data)
+    // binary data (cannot use copyTpl)
     this.fs.copy(this.templatePath('src/img'), this.destinationPath('src/img'))
+    this.fs.copy(
+      this.templatePath('src/favicon.ico'),
+      this.destinationPath('src/favicon.ico')
+    )
   }
 
   install() {
