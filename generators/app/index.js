@@ -14,8 +14,10 @@ module.exports = class extends Generator {
     // just the folder name
     const projectName = path.basename(projectPath)
 
-    this.options.projectName = projectName
-    this.options.projectPath = projectPath
+    this.options = {
+      projectPath,
+      projectName,
+    }
 
     this.destinationRoot(projectPath)
   }
@@ -28,10 +30,15 @@ module.exports = class extends Generator {
         message: 'projectName',
         default: this.options.projectName,
       },
-    ])
+    ]).then(options => {
+      Object.assign(this.options, options)
+    })
   }
 
   writing() {
+    // copies text files, evaluating them as templates such that
+    // the generator options can be <%= interpolated %> during
+    // the copy.
     const copyTpl = (src, dest = src) => {
       this.fs.copyTpl(
         this.templatePath(src),

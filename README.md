@@ -12,7 +12,7 @@ $ npm start
 
 ## Features
 
-- **Hot reloading:** On file save, the app is updated without resetting 
+- **Hot reloading:** On file save, the app is updated without resetting
     your Elm models.
 - **[Sass](http://sass-lang.com/) support:** Just write some `.scss` files.
 - **CSS vendor autoprefixing:** Automatically adds prefixes like `-webkit` to your styles when necessary.
@@ -28,7 +28,7 @@ Install [Yeoman][yeoman] (generator framework) and `generator-elm` globally:
 
 ## Generate
 
-Generate scaffolding in a target folder:
+Generate scaffolding in a target folder (created if it does not exist):
 
     $ yo elm <destinationFolder>
 
