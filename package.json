@@ -1,6 +1,6 @@
 {
   "name": "generator-elm",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "Generate a minimal Elm + Webpack project",
   "repository": "danneu/generator-elm",
   "author": "Dan Neumann <danrodneu@gmail.com> (https://github.com/danneu)",
