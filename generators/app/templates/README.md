@@ -1,4 +1,3 @@
-
 # <%= projectName %>
 
 ## Development
