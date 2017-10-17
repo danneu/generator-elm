@@ -17,6 +17,7 @@ $ npm start
 - **[Sass](http://sass-lang.com/) support:** Just write some `.scss` files.
 - **CSS vendor autoprefixing:** Automatically adds prefixes like `-webkit` to your styles when necessary.
 - **Modern Javascript:** Write ES6 and it'll be compiled to ES5.
+- **ESLint:** Includes a basic .eslintrc and an `npm run lint` command.
 
 ## Install
 

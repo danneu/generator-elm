@@ -1,8 +1,9 @@
 {
   "scripts": {
     "build": "webpack -p",
-    "start": "webpack-dev-server --port 3000 --hot",
-    "deploy": "npm run build && gh-pages --dist dist"
+    "start": "webpack-dev-server --hot",
+    "deploy": "npm run build && gh-pages --dist dist",
+    "lint": "./node_modules/.bin/eslint src/**/*.js"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",
@@ -14,6 +15,7 @@
     "css-loader": "^0.28.4",
     "elm-hot-loader": "^0.5.4",
     "elm-webpack-loader": "^4.3.1",
+    "eslint": "^4.9.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.5",
     "gh-pages": "^1.0.0",

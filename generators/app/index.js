@@ -1,4 +1,3 @@
-'use strict'
 const path = require('path')
 const Generator = require('yeoman-generator')
 const chalk = require('chalk')
@@ -62,6 +61,7 @@ module.exports = class extends Generator {
     copyTpl('webpack.config.js')
     // dotfiles
     copyTpl('_gitignore', '.gitignore')
+    copyTpl('_eslintrc', '.eslintrc')
     // src code
     copyTpl('src/Main.elm')
     // src assets
