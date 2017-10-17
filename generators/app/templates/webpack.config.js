@@ -6,10 +6,13 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 
 const TARGET_ENV =
   process.env.npm_lifecycle_event === 'build' ? 'production' : 'development'
+
+const PORT = process.env.PORT || 3000
 
 const common = {
   entry: {
@@ -107,9 +110,14 @@ if (TARGET_ENV === 'development') {
       }),
 
       new ExtractTextPlugin('app.css'),
+
+      new OpenBrowserPlugin({
+        url: `http://localhost:${PORT}`,
+      }),
     ],
 
     devServer: {
+      port: PORT,
       inline: true,
       historyApiFallback: true,
       stats: {

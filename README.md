@@ -50,6 +50,10 @@ visit <http://localhost:3000>.
 
     $ npm start
 
+Or start the dev server on a custom port:
+
+    $ PORT=8080 npm start
+
 ### Production
 
 Bundle the app into a `dist` folder ready to be deployed.
