@@ -55,11 +55,6 @@ const common = {
         },
       },
       {
-        test: /\.elm$/,
-        exclude: [/elm-stuff/, /node_modules/],
-        use: ['elm-hot-loader', 'elm-webpack-loader?verbose=true&warn=true'],
-      },
-      {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'url-loader?limit=10000&mimetype=application/font-woff',
       },
@@ -125,6 +120,15 @@ if (TARGET_ENV === 'development') {
         children: false,
       },
     },
+    module: {
+      rules: [
+        {
+          test: /\.elm$/,
+          exclude: [/elm-stuff/, /node_modules/],
+          use: ['elm-hot-loader', 'elm-webpack-loader?verbose=true&warn=true&debug=true'],
+        },
+      ],
+    }
   })
 }
 
@@ -145,5 +149,14 @@ if (TARGET_ENV === 'production') {
 
       new ExtractTextPlugin('app-[hash].css'),
     ],
+    module: {
+      rules: [
+        {
+          test: /\.elm$/,
+          exclude: [/elm-stuff/, /node_modules/],
+          use: ['elm-hot-loader', 'elm-webpack-loader?verbose=true&warn=true'],
+        },
+      ],
+    }
   })
 }
