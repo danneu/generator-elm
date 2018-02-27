@@ -91,6 +91,39 @@ Here's the generated project folder:
         ├── <hash>.js
         └── <hash>.css
 
+## Running travis as your ci
+We took the liberty to include a `.travis.yml` file. But you will need to change your webpack config to run it in a performant way.
+First let's install a new package:
+```
+npm install --save-dev global-prefix
+```
+Then import it in your `webpack.cofig.js`:
+```js
+const prefix = require('global-prefix');
+```
+You want to remove the following from the common part of your config:
+```js
+      {
+        test: /\.elm$/,
+        exclude: [/elm-stuff/, /node_modules/],
+        use: ['elm-hot-loader', 'elm-webpack-loader?verbose=true&warn=true'],
+      },
+```
+And copy it to both the development and your production config, right after the `plugins` element.
+Then change your production config to the following code block, if production is the config travis should use.
+```js
+    module: {
+      rules: [
+        {
+          test: /\.elm$/,
+          exclude: [/elm-stuff/, /node_modules/],
+          use: ['elm-hot-loader', 'elm-webpack-loader?verbose=true&warn=true&pathToMake=' + prefix + '/bin/elm-make'],
+        },
+      ],
+    }
+```
+That's it, make sure to customize your `.travis.yml` to your needs.
+
 ## License
 
 MIT © [Dan Neumann](https://github.com/danneu)
