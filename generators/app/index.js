@@ -78,7 +78,7 @@ module.exports = class extends Generator {
 
   install() {
     this.npmInstall()
-    this.runInstall('elm-package', [], { yes: true })
+    this.scheduleInstallTask('elm-package', [], { yes: true })
   }
 
   end() {
