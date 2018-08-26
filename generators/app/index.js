@@ -78,13 +78,12 @@ module.exports = class extends Generator {
     copyTpl('webpack-util.js')
     // dotfiles
     copyTpl('_gitignore', '.gitignore')
+    copyTpl('_tsconfig.json', '.tsconfig.json')
     copyTpl('_eslintrc.json', '.eslintrc.json')
     // src
-    copyTpl('src/Main.elm')
-    copyTpl('src/index.js')
+    copyTpl('src')
     // public
     copyTpl('public/index.html')
-    copyTpl('public/css/index.scss')
     // binary data (cannot use copyTpl)
     this.fs.copy(
       this.templatePath('public/img'),

@@ -69,10 +69,9 @@ const common = (env, argv) => {
           exclude: /node_modules/,
           include: [path.resolve(__dirname, 'public')],
           use: {
-            loader: 'babel-loader',
+            loader: 'ts-loader',
             options: {
-              presets: ['env'],
-              cacheDirectory: true,
+              transpileOnly: true,
             },
           },
         },
@@ -83,7 +82,7 @@ const common = (env, argv) => {
         },
         {
           test: /\.(css|scss|sass)$/,
-          include: [path.resolve(__dirname, 'public')],
+          include: [path.resolve(__dirname, 'src')],
           use: [
             mode === 'production'
               ? MiniCssExtractPlugin.loader
