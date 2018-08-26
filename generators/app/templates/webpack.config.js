@@ -8,6 +8,7 @@ const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const CompressionPlugin = require('compression-webpack-plugin')
+const { OpenBrowserPlugin } = require('./webpack-util')
 
 const PORT = process.env.PORT || 3000
 
@@ -20,6 +21,8 @@ const development = {
     new WebpackBuildNotifierPlugin({
       suppressSuccess: 'always',
     }),
+
+    new OpenBrowserPlugin(PORT),
   ],
 
   devServer: {

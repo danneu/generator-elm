@@ -16,7 +16,7 @@
   "files": [
     "generators"
   ],
-  "main": "generators/index.js",
+  "main": "generators/app/index.js",
   "keywords": [
     "yeoman-generator",
     "elm-lang",
@@ -32,6 +32,7 @@
   "devDependencies": {
     "eslint": "^5.4.0",
     "mocha": "^5.2.0",
+    "react-dev-utils": "^5.0.2",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
   },

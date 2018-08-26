@@ -9,6 +9,10 @@ module.exports = class extends Generator {
     // will be populated during prompt and passed to templates
     this.props = {}
 
+    // sourceRoot defaults to './templates'.
+    // but making it absolute lets us use this generator from anywhere.
+    this.sourceRoot(path.resolve(__dirname, 'templates'))
+
     this.argument('path', {
       type: String,
       required: true,
@@ -32,8 +36,6 @@ module.exports = class extends Generator {
       projectPath,
       projectName,
     }
-
-    this.destinationRoot(projectPath)
   }
 
   async prompting() {
@@ -55,6 +57,9 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    // Note: this creates a folder.
+    this.destinationRoot(this.props.projectPath)
+
     // copies text files, evaluating them as templates such that
     // the generator props can be <%= interpolated %> during
     // the copy.
@@ -70,9 +75,10 @@ module.exports = class extends Generator {
     copyTpl('elm-package.json')
     copyTpl('package.json')
     copyTpl('webpack.config.js')
+    copyTpl('webpack-util.js')
     // dotfiles
     copyTpl('_gitignore', '.gitignore')
-    copyTpl('.eslintrc.json')
+    copyTpl('_eslintrc.json', '.eslintrc.json')
     // src
     copyTpl('src/Main.elm')
     copyTpl('src/index.js')

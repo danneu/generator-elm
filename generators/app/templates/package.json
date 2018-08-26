@@ -1,7 +1,8 @@
 {
+  "name": "<%= projectName %>",
   "scripts": {
     "build": "npx webpack --mode production",
-    "start": "npx webpack-dev-server --mode development --hot --open --progress",
+    "start": "npx webpack-dev-server --mode development --hot --progress",
     "deploy": "npm run build && gh-pages --dist dist",
     "lint": "npx eslint src/**/*.js"
   },
