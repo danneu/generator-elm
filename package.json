@@ -1,17 +1,17 @@
 {
   "name": "generator-elm",
   "version": "0.0.32",
-  "description": "Generate a minimal Elm + Webpack project",
+  "description": "Generate a minimal Elm + Webpack 4 project",
   "repository": "danneu/generator-elm",
-  "author": "Dan Neumann <danrodneu@gmail.com> (https://github.com/danneu)",
+  "author": "Dan Neumann (https://github.com/danneu)",
   "scripts": {
-    "test": "node_modules/.bin/mocha",
+    "test": "npx mocha",
     "patch": "npm version patch && npm publish",
     "minor": "npm version minor && npm publish",
     "major": "npm version major && npm publish",
     "postpublish": "git push origin master --follow-tags",
     "deploy": "git pull --rebase origin master && git push origin master",
-    "pretty-fix": "./node_modules/.bin/prettier --write \"{generators,test}/**/*.js\""
+    "prettier": "prettier --write \"{generators,test}/**/*.js\""
   },
   "files": [
     "generators"
@@ -26,19 +26,20 @@
     "boilerplate"
   ],
   "dependencies": {
-    "chalk": "^2.1.0",
+    "chalk": "^2.4.1",
     "yeoman-generator": "^3.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.4.0",
+    "mocha": "^5.2.0",
+    "yeoman-assert": "^3.1.1",
+    "yeoman-test": "^1.9.1"
   },
   "prettier": {
     "semi": false,
     "singleQuote": true,
-    "trailingComma": "es5"
+    "trailingComma": "es5",
+    "arrowParens": "always"
   },
-  "license": "MIT",
-  "devDependencies": {
-    "mocha": "^4.0.1",
-    "prettier": "^1.7.4",
-    "yeoman-assert": "^3.1.0",
-    "yeoman-test": "^2.0.0"
-  }
+  "license": "MIT"
 }

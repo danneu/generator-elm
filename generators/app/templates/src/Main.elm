@@ -1,5 +1,6 @@
 module Main exposing (..)
 
+import Html.Events as Events
 import Html exposing (Html)
 import Html.Attributes
 
@@ -8,12 +9,12 @@ import Html.Attributes
 
 
 type alias Model =
-    {}
+    { counter : Int }
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( {}
+    ( { counter = 99 }
     , Cmd.none
     )
 
@@ -24,6 +25,7 @@ init =
 
 type Msg
     = NoOp
+    | Increment
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -31,6 +33,9 @@ update msg model =
     case msg of
         NoOp ->
             ( model, Cmd.none )
+
+        Increment ->
+            ( { model | counter = model.counter + 1 }, Cmd.none )
 
 
 
@@ -42,11 +47,14 @@ view model =
     Html.div
         []
         [ Html.img
-            [ Html.Attributes.src "./img/elm.png"
+            [ Html.Attributes.src "/img/elm.png"
             , Html.Attributes.style [ ( "border", "1px solid black" ) ]
             ]
             []
-        , Html.text "Hello world"
+        , Html.text " Hello world"
+        , Html.button
+            [ Events.onClick Increment ]
+            [ Html.text ("Increment " ++ toString model.counter) ]
         ]
 
 

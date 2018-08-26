@@ -30,17 +30,17 @@ module.exports = class extends Generator {
     this.destinationRoot(projectPath)
   }
 
-  prompting() {
-    return this.prompt([
+  async prompting() {
+    const props = await this.prompt([
       {
         type: 'input',
         name: 'projectName',
         message: 'projectName',
         default: this.props.projectName,
       },
-    ]).then(props => {
-      Object.assign(this.props, props)
-    })
+    ])
+
+    Object.assign(this.props, props)
   }
 
   writing() {
@@ -60,8 +60,8 @@ module.exports = class extends Generator {
     copyTpl('package.json')
     copyTpl('webpack.config.js')
     // dotfiles
-    copyTpl('_gitignore', '.gitignore')
-    copyTpl('_eslintrc', '.eslintrc')
+    copyTpl('.gitignore')
+    copyTpl('.eslintrc.json')
     // src code
     copyTpl('src/Main.elm')
     // src assets
