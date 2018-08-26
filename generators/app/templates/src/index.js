@@ -1,4 +1,4 @@
-require('./css/index.scss')
+require('../public/css/index.scss')
 
 const Elm = require('./Main.elm')
 

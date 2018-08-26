@@ -75,10 +75,12 @@ const common = (env, argv) => {
         },
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/,
+          include: [path.resolve(__dirname, 'public')],
           use: ['file-loader'],
         },
         {
           test: /\.(css|scss|sass)$/,
+          include: [path.resolve(__dirname, 'public')],
           use: [
             mode === 'production'
               ? MiniCssExtractPlugin.loader
@@ -111,11 +113,11 @@ const common = (env, argv) => {
 
       new CopyWebpackPlugin([
         {
-          from: 'src/img',
+          from: 'public/img',
           to: 'img',
         },
         {
-          from: 'src/favicon.ico',
+          from: 'public/favicon.ico',
         },
       ]),
     ],

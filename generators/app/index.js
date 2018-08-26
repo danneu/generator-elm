@@ -62,17 +62,20 @@ module.exports = class extends Generator {
     // dotfiles
     copyTpl('.gitignore')
     copyTpl('.eslintrc.json')
-    // src code
+    // src
     copyTpl('src/Main.elm')
-    // src assets
     copyTpl('src/index.html')
     copyTpl('src/index.js')
-    copyTpl('src/css/index.scss')
+    // public
+    copyTpl('public/css/index.scss')
     // binary data (cannot use copyTpl)
-    this.fs.copy(this.templatePath('src/img'), this.destinationPath('src/img'))
     this.fs.copy(
-      this.templatePath('src/favicon.ico'),
-      this.destinationPath('src/favicon.ico')
+      this.templatePath('public/img'),
+      this.destinationPath('public/img')
+    )
+    this.fs.copy(
+      this.templatePath('public/favicon.ico'),
+      this.destinationPath('public/favicon.ico')
     )
   }
 
