@@ -80,6 +80,7 @@ module.exports = class extends Generator {
     copyTpl('_gitignore', '.gitignore')
     copyTpl('_tsconfig.json', '.tsconfig.json')
     copyTpl('_eslintrc.json', '.eslintrc.json')
+    copyTpl('_travis.yml', '.travis.yml')
     // src
     copyTpl('src')
     // public

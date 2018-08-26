@@ -1,3 +1,4 @@
+.DS_Store
 node_modules
 elm-stuff
 generators/app/templates/package-lock.json
