@@ -56,7 +56,7 @@ const common = (env, argv) => {
       rules: [
         {
           test: /\.elm$/,
-          exclude: [/elm-stuff/, /node_modules/],
+          include: [path.resolve(__dirname, 'src')],
           loader: 'elm-webpack-loader',
           options: {
             // Shows the model history overlay

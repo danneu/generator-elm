@@ -1,5 +1,6 @@
 module Main exposing (..)
 
+import Browser
 import Html exposing (Html, div, img, text)
 import Html.Attributes as Attr
 
@@ -11,8 +12,11 @@ type alias Model =
     {}
 
 
-init : ( Model, Cmd Msg )
-init =
+type alias Flags =
+    {}
+
+init : Flags -> ( Model, Cmd Msg )
+init flags =
     ( {}
     , Cmd.none
     )
@@ -43,7 +47,7 @@ view model =
         []
         [ img
             [ Attr.src "/img/elm.png"
-            , Attr.style [ ( "border", "1px solid black" ) ]
+            , Attr.style  "border" "1px solid black" 
             ]
             []
         , text "Hello world"
@@ -59,9 +63,9 @@ subscriptions model =
     Sub.none
 
 
-main : Program Never Model Msg
+main : Program Flags Model Msg
 main =
-    Html.program
+    Browser.element
         { init = init
         , update = update
         , view = view

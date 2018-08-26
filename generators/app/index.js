@@ -72,7 +72,7 @@ module.exports = class extends Generator {
     }
 
     copyTpl('README.md')
-    copyTpl('elm-package.json')
+    copyTpl('elm.json')
     copyTpl('package.json')
     copyTpl('webpack.config.js')
     copyTpl('webpack-util.js')
@@ -98,7 +98,7 @@ module.exports = class extends Generator {
 
   install() {
     this.npmInstall()
-    this.scheduleInstallTask('elm-package', [], { yes: true })
+    this.spawnCommand('elm', ['make', 'src/Main.elm'])
   }
 
   end() {
