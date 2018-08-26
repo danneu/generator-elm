@@ -86,9 +86,9 @@ Here's the generated project folder:
     ├── webpack.config.js
     ├── src                # your elm code/components go in here
     │   ├── Main.elm       # root elm component, begin hacking here
-    │   ├── index.html     # root html file, Main.elm mounts to it
     │   └── index.js       # root javascript file, webpack entrypoint
     ├── public
+    │   ├── index.html     # root html file, Main.elm mounts to it
     │   ├── favicon.ico    # a default favicon for you to replace
     │   ├── css
     │   │   └── index.scss # root css file that should @import other css files

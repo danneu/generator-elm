@@ -14,6 +14,12 @@ module.exports = class extends Generator {
       required: true,
       desc: 'Where to generate the project (folder name, ".", or path)',
     })
+
+    this.option('force', {
+      desc:
+        'Skip project name confirmation and always overwrite on file conflicts',
+      default: false,
+    })
   }
 
   initializing() {
@@ -31,6 +37,11 @@ module.exports = class extends Generator {
   }
 
   async prompting() {
+    if (this.options.force) {
+      this.log('Skipping project name prompt because --force flag was given...')
+      return
+    }
+
     const props = await this.prompt([
       {
         type: 'input',
@@ -60,13 +71,13 @@ module.exports = class extends Generator {
     copyTpl('package.json')
     copyTpl('webpack.config.js')
     // dotfiles
-    copyTpl('.gitignore')
+    copyTpl('_gitignore', '.gitignore')
     copyTpl('.eslintrc.json')
     // src
     copyTpl('src/Main.elm')
-    copyTpl('src/index.html')
     copyTpl('src/index.js')
     // public
+    copyTpl('public/index.html')
     copyTpl('public/css/index.scss')
     // binary data (cannot use copyTpl)
     this.fs.copy(

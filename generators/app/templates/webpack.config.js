@@ -64,7 +64,7 @@ const common = (env, argv) => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          include: [path.resolve(__dirname, 'src')],
+          include: [path.resolve(__dirname, 'public')],
           use: {
             loader: 'babel-loader',
             options: {
@@ -108,7 +108,7 @@ const common = (env, argv) => {
 
       new HtmlWebpackPlugin({
         title: '<%= projectName %>',
-        template: 'src/index.html',
+        template: 'public/index.html',
       }),
 
       new CopyWebpackPlugin([
